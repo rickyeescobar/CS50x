@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+    <!-- Display user's portfolio  -->
+
+    <div class="section">
+        <h2>{{ username }}'s Portfolio</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-start" scope="col">Instrument</th>
+                    <th class="text-start" scope="col">Name</th>
+                    <th  scope="col">Position</th>
+                    <th  scope="col">Price</th>
+                    <th  scope="col">TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- TODO: Loop through the database entries to display them in this table -->
+                {% for stock in portfolio %}
+                    <tr>
+                        <td class="text-start">{{ stock["Instrument"] }}</td>
+                        <td class="text-start">{{ stock["Name"] }}</td>
+                        <td>{{ stock["Position"] }}</td>
+                        <td>{{ stock["Last Price"] | usd }}</td>
+                        <td>{{ (stock["Last Price"] * stock["Position"]) | usd }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                  <th class="text-end" id="cash_balance" colspan="4">Cash Balance:</th>
+                  <td>{{ formatted_cash }}</td>
+                </tr>
+                <tr>
+                    <th class="text-end" id="total_account" colspan="4">Total Account Value:</th>
+                    <td>{{ total_account_value }} </td>
+                  </tr>
+               </tfoot>
+        </table>
+    </div>
+
+
+
+{% endblock %}

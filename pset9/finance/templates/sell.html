@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+
+        <h2>Sell Stocks</h2>
+        <form action="/sell" method="post">
+            <select name="symbol" required autofocus>
+                    <option  selected disabled>Stock</option>
+                {% for stock in portfolio %}
+                    <option  value='{{ stock["instrument"] }}'> {{ stock["instrument"] }} - shares available: {{ stock["position"] }}</option>
+                {% endfor %}
+            </select>
+            <input class="w-auto" name="shares" placeholder="Number of Shares (100)" type="text">
+            <button class="btn-primary" type="submit">Sell</button>
+        </form>
+
+
+{% endblock %}

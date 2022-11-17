@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <div class="section">
+        <h2>{{ username }}'s Transaction History</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Instrument</th>
+                    <th scope="col">Buy/Sell Price</th>
+                    <th scope="col">Cash Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- TODO: Loop through the database entries to display them in this table -->
+                {% for transaction in transactions %}
+                    <tr>
+                        <td>{{ transaction["transaction_date"] }}</td>
+                        <td>{{ transaction["transaction_type"] }}</td>
+                        <td>{{ transaction["size"] }}</td>
+                        <td>{{ transaction["instrument"] }}</td>
+                        <td>{{ transaction["instrument_price"] }}</td>
+                        <td>{{ transaction["cash_change"] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+
+{% endblock %}
