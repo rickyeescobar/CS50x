@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script src="trivia.js">
+            // TODO: Add code to check answers to questions
+
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3 id="q1">What is 2 + 2?</h3>
+
+                <!-- add 3 buttons that change colors and display correct or incorrect-->
+                <button class="incorrect" type="button">0</button>
+                <button class="incorrect" type="button">6</button>
+                <button class="correct" type="button">4</button>
+
+                <p id="q1feedback"></p>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>What is this class called?</h3>
+
+                <form>
+                    <input size="80" autocomplete="off" type="text">
+                    <button id="check" return type="button">check</button>
+
+
+                </form>
+                <p id="q2feedback"></p>
+            </div>
+        </div>
+    </body>
+</html>
