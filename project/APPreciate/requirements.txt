@@ -1,0 +1,8 @@
+Click
+Flask
+flask_session
+functools
+NLTK
+os
+setuptools
+Werkzeug.security

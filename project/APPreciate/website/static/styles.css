@@ -1,0 +1,15 @@
+footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+  }
+
+.leave_community{
+  padding: 2px;
+}
+.delete_community{
+  padding: 2px;
+}
+.update_form{
+  padding: 2px;
+}

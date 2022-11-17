@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit Post in {{ post['community_name'] }} {% endblock %}</h1>
+{% endblock %}
+
+{% block main %}
+
+<form id="update_post" method="post">
+  <label for="body">Body</label>
+  <textarea class="form-control" rows="5" name="body" id="body">{{ request.form['body'] or post['body'] }}</textarea>
+</form>
+
+<div class="btn-group" style="padding: 5px;">
+  <input form="update_post" class="btn btn-outline-primary btn-sm" type="submit" value="Save"/>
+
+  <form action="{{ url_for('views.delete', id=post['id']) }}" method="post">
+    <input class="btn btn-outline-primary btn-sm" type="submit" value="Delete" onclick="return confirm('Are you sure?');"/>
+  </form>
+</div>
+{% endblock %}

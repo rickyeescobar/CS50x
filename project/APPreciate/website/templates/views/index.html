@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+
+{% block header %}
+  <h1>{% block title %}Index{% endblock %}</h1>
+  {% if g.user %}
+    <a class="btn btn-outline-primary btn-sm" href="{{ url_for('views.create') }}">New</a>
+  {% endif %}
+{% endblock %}
+{% block main %}
+
+{% if posts | length == 0 %}
+<h4>{{ "Join a community first to make a post!" }}</h4>
+{% endif %}
+
+  {% for post in posts %}
+    <blockquote class="blockquote">
+      <h4>{{ post['body'] }}</h4>
+    </blockquote>
+          <figcaption class="blockquote-footer">
+            by <cite title="Source Title">{{ post['username'] }} on {{ post['created'].strftime('%Y-%m-%d') }} in {{ post['community_name'] }}</cite>
+          </figcaption>
+        {% if g.user['id'] == post['author_id'] %}
+          <a type="button" class="btn btn-outline-primary btn-sm" href="{{ url_for('views.update', id=post['id']) }}">Edit</a>
+        {% endif %}
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+    <br />
+  {% endfor %}
+  <br />
+{% endblock %}
